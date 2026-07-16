@@ -220,6 +220,9 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 }
 .doodle-ink { fill: var(--ink); }
 .doodle-accent { fill: var(--gold); }
+/* In dark mode the light ink lines sit on top of the accent blob,
+   so it must go deep rather than bright to keep the figure legible */
+html[data-theme="dark"] .doodle-accent { fill: #9a3412; }
 
 @keyframes doodle-drift {
   from { transform: translateY(-8px); }
