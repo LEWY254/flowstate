@@ -6,6 +6,38 @@ if (nav) {
   onScroll();
 }
 
+// Mobile nav menu
+const navToggle = document.querySelector(".nav-toggle");
+const siteNav = document.getElementById("site-nav");
+if (nav && navToggle && siteNav) {
+  const closeNav = () => {
+    nav.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Open menu");
+    document.body.classList.remove("nav-open");
+  };
+
+  navToggle.addEventListener("click", () => {
+    const open = !nav.classList.contains("is-open");
+    nav.classList.toggle("is-open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    document.body.classList.toggle("nav-open", open);
+  });
+
+  siteNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeNav);
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeNav();
+  });
+
+  window.matchMedia("(min-width: 1025px)").addEventListener("change", (e) => {
+    if (e.matches) closeNav();
+  });
+}
+
 // Reveal-on-scroll with a slight stagger (delays live in CSS)
 const observer = new IntersectionObserver(
   (entries) => {

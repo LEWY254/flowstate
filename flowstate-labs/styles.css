@@ -177,6 +177,42 @@ input:focus-visible {
 html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
 html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+.nav-toggle:hover { background: var(--pill-bg); }
+.nav-toggle-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 0 auto;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 0.3s var(--ease-spring), opacity 0.2s ease;
+}
+.nav.is-open .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav.is-open .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.nav.is-open .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+body.nav-open { overflow: hidden; }
+
 /* ---------- Hero ---------- */
 
 .hero {
@@ -745,4 +781,149 @@ html[data-theme="dark"] .doodle-accent { fill: #9a3412; }
   border-radius: 6px;
   padding: 1px 6px;
   color: var(--ink);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .nav-toggle { display: flex; }
+
+  .nav.is-open,
+  .nav.is-open.is-scrolled {
+    background: var(--nav-glass);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    box-shadow: 0 1px 0 var(--hairline);
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 8px clamp(20px, 4vw, 48px) 32px;
+    background: var(--bg);
+    border-top: 1px solid var(--hairline);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.28s ease,
+      transform 0.28s var(--ease-spring),
+      visibility 0.28s ease;
+  }
+
+  .nav.is-open .nav-links {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .nav-links a:not(.nav-cta) {
+    padding: 14px 0;
+    font-size: 16px;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .nav-links .theme-toggle {
+    align-self: flex-start;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-cta {
+    margin-top: 20px;
+    padding: 12px 18px;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: auto;
+    padding: 108px 20px 48px;
+  }
+
+  .hero-canvas {
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 25%, transparent 90%);
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 25%, transparent 90%);
+  }
+
+  .hero-title { font-size: clamp(36px, 10vw, 52px); }
+  .hero-sub { font-size: 17px; }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .marquee { padding: 48px 0 4px; }
+
+  .section-head {
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+
+  .apps { padding: 64px 0 40px; }
+  .app-grid { padding: 0 20px; gap: 16px; }
+  .app-card {
+    flex-direction: column;
+    padding: 24px;
+    gap: 18px;
+  }
+  .app-card:hover { transform: none; }
+
+  .approach {
+    padding: 72px 20px;
+  }
+  .approach-statement { margin-bottom: 56px; }
+
+  .about {
+    padding: 64px 20px 32px;
+  }
+  .about-title { max-width: none; }
+  .about-block { padding: 22px; }
+
+  .updates { padding: 24px 20px 96px; }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+  }
+  .footer nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .legal {
+    padding: 96px 20px 72px;
+  }
+  .legal-head { margin-bottom: 36px; }
+  .legal-body { font-size: 16px; }
+  .legal-body h2 { margin-top: 32px; }
+}
+
+@media (max-width: 380px) {
+  .wordmark { font-size: 14px; gap: 7px; }
+  .wordmark-glyph { width: 20px; height: 20px; }
 }
