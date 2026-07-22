@@ -1,8 +1,10 @@
 // Frosted nav appears once the page starts scrolling
 const nav = document.getElementById("nav");
-const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 12);
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
+if (nav) {
+  const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 12);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
 
 // Reveal-on-scroll with a slight stagger (delays live in CSS)
 const observer = new IntersectionObserver(
@@ -19,17 +21,21 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
 // Light/dark toggle, persisted across visits
-document.getElementById("theme-toggle").addEventListener("click", () => {
-  const html = document.documentElement;
-  const next = html.dataset.theme === "dark" ? "light" : "dark";
-  html.dataset.theme = next;
-  localStorage.setItem("theme", next);
-  if (typeof flow !== "undefined") flow.recolor();
-});
+const themeToggle = document.getElementById("theme-toggle");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const html = document.documentElement;
+    const next = html.dataset.theme === "dark" ? "light" : "dark";
+    html.dataset.theme = next;
+    localStorage.setItem("theme", next);
+    if (typeof flow !== "undefined" && flow) flow.recolor();
+  });
+}
 
 // ---- Hero particle field: drifting dots with proximity links ----
 const flow = (() => {
   const canvas = document.getElementById("flow");
+  if (!canvas) return null;
   const ctx = canvas.getContext("2d");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -118,7 +124,10 @@ const flow = (() => {
 })();
 
 // Signup form — no backend yet, so just confirm locally
-document.getElementById("signup-form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  e.target.closest(".updates-inner").classList.add("is-signed-up");
-});
+const signupForm = document.getElementById("signup-form");
+if (signupForm) {
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    e.target.closest(".updates-inner").classList.add("is-signed-up");
+  });
+}
