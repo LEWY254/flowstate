@@ -75,31 +75,10 @@
         position: sticky;
         top: 0;
         z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
         padding: 0.85rem clamp(1.25rem, 4vw, 2.5rem);
         background: rgba(232, 240, 242, 0.82);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(11, 95, 106, 0.08);
-      }
-
-      .topbar-brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.55rem;
-        font-family: var(--font-display);
-        font-weight: 800;
-        font-size: 1.05rem;
-        letter-spacing: -0.03em;
-        color: var(--primary);
-      }
-
-      .topbar-brand img {
-        width: 28px;
-        height: 28px;
-        border-radius: 8px;
       }
 
       .topbar-back {
@@ -281,97 +260,282 @@
       }
 
       .phone-screen {
+        position: relative;
         height: 100%;
         border-radius: 28px;
         overflow: hidden;
-        background: var(--surface);
-        display: flex;
-        flex-direction: column;
-        padding: 1.35rem 1rem 1rem;
-        gap: 0.85rem;
+        background: #f2f5f6;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       }
 
-      .phone-status {
+      .app-ui {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+        line-height: 1.3;
+        color: #121a1c;
+      }
+
+      .app-status {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 0.65rem;
+        padding: 10px 16px 4px;
+        font-size: 9px;
         font-weight: 600;
-        color: var(--ink-2);
-        padding: 0 0.15rem;
+        color: #4a5a5e;
       }
 
-      .phone-greet {
-        font-size: 0.8rem;
-        color: var(--ink-2);
+      .app-scroll {
+        flex: 1;
+        overflow: hidden;
+        padding: 8px 12px 88px;
       }
 
-      .phone-streak {
-        font-family: var(--font-display);
-        font-weight: 800;
-        font-size: 3.1rem;
-        line-height: 1;
-        letter-spacing: -0.04em;
-        color: var(--primary);
+      .app-greeting {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 10px;
       }
 
-      .phone-streak span {
-        display: block;
-        font-family: var(--font-body);
+      .app-greeting-copy {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .app-greeting-eyebrow {
+        font-size: 9px;
+        color: #4a5a5e;
+        margin-bottom: 2px;
+      }
+
+      .app-greeting-title {
+        font-size: 13px;
         font-weight: 500;
-        font-size: 0.7rem;
-        letter-spacing: 0;
-        color: var(--ink-3);
-        margin-top: 0.35rem;
+        letter-spacing: -0.01em;
       }
 
-      .phone-chart {
-        height: 64px;
-        border-radius: 12px;
-        background: linear-gradient(180deg, #eef7f8, #f7fbfb);
+      .app-bell {
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        color: #0b5f6a;
+        flex-shrink: 0;
+      }
+
+      .app-bell svg {
+        width: 15px;
+        height: 15px;
+      }
+
+      .app-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .app-card {
+        border-radius: 14px;
+        border: 0.5px solid #d5e0e3;
+        background: #fff;
+        padding: 11px 12px;
+      }
+
+      .app-card.tonal-success {
+        background: #d8f5ee;
+        border-color: transparent;
+      }
+
+      .app-streak-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .app-streak-row svg {
+        width: 16px;
+        height: 16px;
+        color: #0c5c4d;
+        flex-shrink: 0;
+      }
+
+      .app-streak-num {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1;
+        color: #0c5c4d;
+        letter-spacing: -0.02em;
+      }
+
+      .app-streak-sub {
+        font-size: 9px;
+        color: #0c5c4d;
+        margin-top: 1px;
+      }
+
+      .app-streak-chevron {
+        margin-left: auto;
+        color: #0c5c4d;
+      }
+
+      .app-streak-chevron svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      .app-card-title {
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .app-card-sub {
+        font-size: 8px;
+        color: #4a5a5e;
+        margin-top: 2px;
+        margin-bottom: 8px;
+      }
+
+      .app-reliability {
         display: flex;
         align-items: flex-end;
-        gap: 5px;
-        padding: 10px 12px 8px;
+        justify-content: space-between;
+        gap: 2px;
+        height: 28px;
+        margin-bottom: 8px;
       }
 
-      .phone-chart i {
+      .app-reliability span {
         flex: 1;
-        border-radius: 4px 4px 2px 2px;
-        background: var(--primary);
-        opacity: 0.85;
+        border-radius: 2px 2px 1px 1px;
         transform-origin: bottom;
         animation: bar-grow 0.8s var(--ease) both;
       }
 
-      .phone-chart i:nth-child(1) { height: 42%; animation-delay: 0.45s; }
-      .phone-chart i:nth-child(2) { height: 68%; animation-delay: 0.52s; }
-      .phone-chart i:nth-child(3) { height: 55%; animation-delay: 0.59s; }
-      .phone-chart i:nth-child(4) { height: 88%; background: var(--success); animation-delay: 0.66s; }
-      .phone-chart i:nth-child(5) { height: 72%; animation-delay: 0.73s; }
-      .phone-chart i:nth-child(6) { height: 38%; background: var(--warning); opacity: 0.7; animation-delay: 0.8s; }
-      .phone-chart i:nth-child(7) { height: 80%; animation-delay: 0.87s; }
+      .app-reliability .done { height: 22px; background: #1a9b84; }
+      .app-reliability .missed { height: 11px; background: #b8860b; }
+      .app-reliability .today { height: 22px; background: #0b5f6a; }
+      .app-reliability .empty { height: 6px; background: #e6eef0; }
 
-      .phone-row {
-        margin-top: auto;
-        padding: 0.75rem 0.85rem;
-        border-radius: 16px;
-        background: #ffffff;
-        border: 1px solid var(--divider);
+      .app-reliability span:nth-child(1) { animation-delay: 0.35s; }
+      .app-reliability span:nth-child(2) { animation-delay: 0.38s; }
+      .app-reliability span:nth-child(3) { animation-delay: 0.41s; }
+      .app-reliability span:nth-child(4) { animation-delay: 0.44s; }
+      .app-reliability span:nth-child(5) { animation-delay: 0.47s; }
+      .app-reliability span:nth-child(6) { animation-delay: 0.5s; }
+      .app-reliability span:nth-child(7) { animation-delay: 0.53s; }
+      .app-reliability span:nth-child(8) { animation-delay: 0.56s; }
+      .app-reliability span:nth-child(9) { animation-delay: 0.59s; }
+      .app-reliability span:nth-child(10) { animation-delay: 0.62s; }
+      .app-reliability span:nth-child(11) { animation-delay: 0.65s; }
+      .app-reliability span:nth-child(12) { animation-delay: 0.68s; }
+      .app-reliability span:nth-child(13) { animation-delay: 0.71s; }
+      .app-reliability span:nth-child(14) { animation-delay: 0.74s; }
+
+      .app-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
       }
 
-      .phone-row strong {
-        display: block;
-        font-size: 0.72rem;
-        font-weight: 600;
-        color: var(--ink);
-        margin-bottom: 0.2rem;
+      .app-legend-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 8px;
+        color: #849499;
       }
 
-      .phone-row p {
-        font-size: 0.65rem;
-        color: var(--ink-3);
-        line-height: 1.35;
+      .app-legend-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+      }
+
+      .app-wallet-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .app-wallet-head svg {
+        width: 12px;
+        height: 12px;
+        color: #849499;
+        margin-left: auto;
+      }
+
+      .app-tabbar {
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        height: 46px;
+        border-radius: 18px;
+        border: 0.5px solid #d5e0e3;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        padding: 3px;
+        box-shadow: 0 4px 8px rgba(11, 95, 106, 0.08);
+      }
+
+      .app-tab-indicator {
+        position: absolute;
+        left: 3px;
+        top: 4px;
+        bottom: 4px;
+        width: calc(25% - 2px);
+        border-radius: 14px;
+        background: #d5f0f3;
+      }
+
+      .app-tab {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1px;
+        color: #849499;
+      }
+
+      .app-tab.active {
+        color: #083f47;
+      }
+
+      .app-tab svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .app-tab-label {
+        font-size: 7px;
+        font-weight: 500;
+      }
+
+      .app-fab {
+        position: absolute;
+        right: 14px;
+        bottom: 62px;
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: #0b5f6a;
+        color: #fff;
+        display: grid;
+        place-items: center;
+        box-shadow: 0 4px 10px rgba(11, 95, 106, 0.22);
+      }
+
+      .app-fab svg {
+        width: 18px;
+        height: 18px;
       }
 
       .section {
@@ -597,10 +761,6 @@
   <body>
     <header class="topbar">
       <a href="/" class="topbar-back">← Flowstate Labs</a>
-      <a href="/pactone" class="topbar-brand" aria-label="Pactone home">
-        <img src="./assets/icon.svg" alt="" width="28" height="28" />
-        Pactone
-      </a>
     </header>
 
     <main>
@@ -653,18 +813,129 @@
           <div class="visual" aria-hidden="true">
             <div class="phone">
               <div class="phone-screen">
-                <div class="phone-status">
-                  <span>9:41</span>
-                  <span>●●●</span>
-                </div>
-                <p class="phone-greet">Good evening</p>
-                <p class="phone-streak">12<span>day streak · on time</span></p>
-                <div class="phone-chart">
-                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-                </div>
-                <div class="phone-row">
-                  <strong>Morning run</strong>
-                  <p>Report due today · @jordan</p>
+                <div class="app-ui">
+                  <div class="app-status">
+                    <span>9:41</span>
+                    <span>▮▮▮ ▮</span>
+                  </div>
+
+                  <div class="app-scroll">
+                    <div class="app-greeting">
+                      <div class="app-greeting-copy">
+                        <p class="app-greeting-eyebrow">Good evening, Jordan</p>
+                        <p class="app-greeting-title">How you're doing</p>
+                      </div>
+                      <div class="app-bell">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm7-6V11a7 7 0 1 0-14 0v5l-2 2v1h18v-1l-2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+
+                    <div class="app-stack">
+                      <div class="app-card tonal-success">
+                        <div class="app-streak-row">
+                          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 2c1.1 3.1 3.9 4.4 3.9 7.5 0 1.2-.5 2.3-1.3 3.1C17.1 14.2 19 16.8 19 20h-2c0-2.5-1.6-4.6-3.8-5.4-.4 1.4-1.6 2.4-3.2 2.4s-2.8-1-3.2-2.4C7.6 15.4 6 17.5 6 20H4c0-3.2 1.9-5.8 4.4-7.4-.8-.8-1.3-1.9-1.3-3.1C7.1 6.4 9.9 5.1 11 2h1Z"/>
+                          </svg>
+                          <div>
+                            <div class="app-streak-num">12</div>
+                            <div class="app-streak-sub">day streak · 86% on time</div>
+                          </div>
+                          <div class="app-streak-chevron">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                              <path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="app-card">
+                        <div class="app-card-title">Showing up</div>
+                        <div class="app-card-sub">Last 14 days · across your goals</div>
+                        <div class="app-reliability">
+                          <span class="done"></span>
+                          <span class="done"></span>
+                          <span class="done"></span>
+                          <span class="missed"></span>
+                          <span class="done"></span>
+                          <span class="done"></span>
+                          <span class="empty"></span>
+                          <span class="done"></span>
+                          <span class="done"></span>
+                          <span class="done"></span>
+                          <span class="missed"></span>
+                          <span class="done"></span>
+                          <span class="done"></span>
+                          <span class="today"></span>
+                        </div>
+                        <div class="app-legend">
+                          <div class="app-legend-item">
+                            <span class="app-legend-dot" style="background:#1a9b84"></span>
+                            9 done
+                          </div>
+                          <div class="app-legend-item">
+                            <span class="app-legend-dot" style="background:#b8860b"></span>
+                            2 skipped
+                          </div>
+                          <div class="app-legend-item">
+                            <span class="app-legend-dot" style="background:#0b5f6a"></span>
+                            Today
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="app-card">
+                        <div class="app-wallet-head">
+                          <div>
+                            <div class="app-card-title">Your stakes</div>
+                            <div class="app-card-sub">$24.00 unlocked · $10.00 locked</div>
+                          </div>
+                          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="app-fab">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+
+                  <nav class="app-tabbar" aria-hidden="true">
+                    <div class="app-tab-indicator"></div>
+                    <div class="app-tab active">
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5Z"/>
+                      </svg>
+                      <span class="app-tab-label">Home</span>
+                    </div>
+                    <div class="app-tab">
+                      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M5 21V9l7-4 7 4v12" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                        <path d="M9 21v-6h6v6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                      </svg>
+                      <span class="app-tab-label">Goals</span>
+                    </div>
+                    <div class="app-tab">
+                      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M9 14h6M9 18h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      </svg>
+                      <span class="app-tab-label">Reports</span>
+                    </div>
+                    <div class="app-tab">
+                      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                      </svg>
+                      <span class="app-tab-label">Profile</span>
+                    </div>
+                  </nav>
                 </div>
               </div>
             </div>
