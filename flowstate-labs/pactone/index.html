@@ -97,7 +97,7 @@
         overflow: hidden;
         display: grid;
         align-items: center;
-        padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 2.5rem) 4rem;
+        padding: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 4vw, 2.5rem) 4.25rem;
         background:
           radial-gradient(ellipse 80% 55% at 12% 18%, #9fd8df 0%, transparent 58%),
           radial-gradient(ellipse 70% 50% at 88% 12%, #b8ebe3 0%, transparent 52%),
@@ -123,16 +123,16 @@
         width: min(1120px, 100%);
         margin: 0 auto;
         display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: clamp(2rem, 6vw, 4.5rem);
+        grid-template-columns: minmax(0, 1.02fr) minmax(280px, 0.98fr);
+        gap: clamp(2rem, 5vw, 4rem);
         align-items: center;
       }
 
       .copy {
         display: flex;
         flex-direction: column;
-        gap: 1.35rem;
-        max-width: 34rem;
+        gap: 1.25rem;
+        max-width: 35rem;
         animation: rise 0.9s var(--ease) both;
       }
 
@@ -148,18 +148,18 @@
       .headline {
         font-family: var(--font-display);
         font-weight: 700;
-        font-size: clamp(1.35rem, 2.6vw, 1.75rem);
-        line-height: 1.25;
+        font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+        line-height: 1.22;
         letter-spacing: -0.02em;
         color: var(--ink);
-        max-width: 18ch;
+        max-width: 16ch;
       }
 
       .lede {
-        font-size: 1.0625rem;
-        line-height: 1.55;
+        font-size: 1.03125rem;
+        line-height: 1.62;
         color: var(--ink-2);
-        max-width: 42ch;
+        max-width: 40ch;
       }
 
       .purpose {
@@ -174,11 +174,11 @@
       }
 
       .purpose-lead {
-        font-size: 1.125rem;
-        line-height: 1.6;
+        font-size: 1.0625rem;
+        line-height: 1.65;
         color: var(--ink);
         max-width: 62ch;
-        margin-bottom: 2rem;
+        margin: 0 auto 2rem;
       }
 
       .purpose-grid {
@@ -242,7 +242,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.75rem;
-        margin-top: 0.35rem;
+        margin-top: 0.5rem;
         animation: rise 0.9s var(--ease) 0.12s both;
       }
 
@@ -615,11 +615,11 @@
       }
 
       .section {
-        padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.25rem, 4vw, 2.5rem);
+        padding: clamp(3.5rem, 8vw, 5.25rem) clamp(1.25rem, 4vw, 2.5rem);
       }
 
       .section-inner {
-        width: min(960px, 100%);
+        width: min(980px, 100%);
         margin: 0 auto;
       }
 
@@ -635,8 +635,8 @@
       .section-title {
         font-family: var(--font-display);
         font-weight: 700;
-        font-size: clamp(1.75rem, 4vw, 2.35rem);
-        line-height: 1.15;
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        line-height: 1.12;
         letter-spacing: -0.03em;
         max-width: 18ch;
         margin-bottom: 2.25rem;
@@ -691,7 +691,7 @@
       .feature-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        gap: 1.1rem;
       }
 
       .feature {
@@ -789,6 +789,7 @@
         .shell {
           grid-template-columns: 1fr;
           text-align: center;
+          gap: 2.5rem;
         }
 
         .copy {
@@ -836,16 +837,27 @@
 
       @media (max-width: 480px) {
         .hero {
-          padding-bottom: 2.5rem;
+          padding: 2rem 1rem 2.75rem;
         }
 
         .brand {
-          font-size: clamp(2.75rem, 14vw, 3.4rem);
+          font-size: clamp(2.8rem, 14vw, 3.5rem);
         }
 
         .headline,
         .lede {
           max-width: none;
+        }
+
+        .headline {
+          font-size: 1.2rem;
+        }
+
+        .lede,
+        .purpose-lead,
+        .download p {
+          font-size: 0.98rem;
+          line-height: 1.6;
         }
 
         .ctas {
@@ -867,6 +879,14 @@
         .feature,
         .purpose-block {
           padding: 1.15rem;
+        }
+
+        .section {
+          padding: 3.5rem 1rem;
+        }
+
+        .section-title {
+          margin-bottom: 1.5rem;
         }
 
         .site-footer {
