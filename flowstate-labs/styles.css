@@ -117,13 +117,15 @@ input:focus-visible {
   box-shadow: 0 1px 0 var(--hairline);
 }
 .nav-inner {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 24px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 clamp(20px, 4vw, 48px);
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 .wordmark {
   display: flex;
@@ -137,7 +139,9 @@ input:focus-visible {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: clamp(16px, 2vw, 28px);
+  margin-left: auto;
+  flex-shrink: 0;
   font-size: 13.5px;
 }
 .nav-links a { color: var(--ink-2); transition: color 0.2s ease; }
