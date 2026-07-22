@@ -584,6 +584,93 @@ html[data-theme="dark"] .doodle-accent { fill: #9a3412; }
 .updates-inner.is-signed-up .signup { display: none; }
 .updates-inner.is-signed-up .signup-confirm { display: block; }
 
+/* ---------- About (domain verification) ---------- */
+
+.about {
+  padding: 88px 24px 40px;
+  border-top: 1px solid var(--hairline);
+  background: var(--surface);
+}
+
+.about-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: clamp(28px, 3.8vw, 42px);
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 12px 0 20px;
+  max-width: 20ch;
+}
+
+.about-lead {
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 68ch;
+  margin-bottom: 36px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+}
+
+.about-block {
+  padding: 28px;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--hairline);
+  background: var(--bg);
+}
+
+.about-block h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.about-block p,
+.about-block li {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.about-block p + p {
+  margin-top: 12px;
+}
+
+.about-note {
+  font-size: 14px !important;
+  color: var(--ink-3) !important;
+}
+
+.product-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.product-list a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.product-list a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-lead { max-width: none; }
+}
+
 /* ---------- Footer ---------- */
 
 .footer { border-top: 1px solid var(--hairline); }
