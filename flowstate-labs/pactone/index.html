@@ -6,12 +6,12 @@
     <title>Pactone — Goals with someone who cares</title>
     <meta
       name="description"
-      content="Pactone holds you accountable with proof, stakes, and a friend who cares. Seal a goal, send daily reports, and keep the stake until it's done."
+      content="Pactone is an accountability app for habits and goals. Set a goal with a partner or solo, submit photo proof on schedule, track streaks, and optionally put money on the line until you finish."
     />
     <meta property="og:title" content="Pactone — Goals with someone who cares" />
     <meta
       property="og:description"
-      content="Accountability with proof, stakes, and someone you trust — or go solo with Pactone."
+      content="Pactone is an accountability app for habits and goals — proof, partners, streaks, and optional stakes."
     />
     <meta property="og:type" content="website" />
     <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
@@ -159,7 +159,83 @@
         font-size: 1.0625rem;
         line-height: 1.55;
         color: var(--ink-2);
-        max-width: 36ch;
+        max-width: 42ch;
+      }
+
+      .purpose {
+        background: #fff;
+        border-top: 1px solid var(--divider);
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .purpose .section-title {
+        max-width: none;
+        margin-bottom: 1rem;
+      }
+
+      .purpose-lead {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        color: var(--ink);
+        max-width: 62ch;
+        margin-bottom: 2rem;
+      }
+
+      .purpose-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+
+      .purpose-block {
+        padding: 1.35rem 1.5rem;
+        border-radius: 20px;
+        background: var(--surface);
+        border: 1px solid var(--divider);
+      }
+
+      .purpose-block h3 {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .purpose-block p,
+      .purpose-block ul {
+        font-size: 0.9375rem;
+        line-height: 1.55;
+        color: var(--ink-2);
+      }
+
+      .purpose-block ul {
+        margin-top: 0.5rem;
+        padding-left: 1.15rem;
+      }
+
+      .purpose-block li + li {
+        margin-top: 0.35rem;
+      }
+
+      .purpose-block.wide {
+        grid-column: 1 / -1;
+      }
+
+      .use-cases {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+      }
+
+      .use-case {
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--primary);
+        background: var(--primary-soft);
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
       }
 
       .ctas {
@@ -745,6 +821,14 @@
           grid-template-columns: 1fr;
         }
 
+        .purpose-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .purpose-lead {
+          max-width: none;
+        }
+
         .section-title {
           max-width: none;
         }
@@ -770,8 +854,9 @@
             <h1 class="brand">Pactone</h1>
             <p class="headline">Goals with someone who cares</p>
             <p class="lede">
-              Seal a goal with a friend — or go solo. Send proof when it's due,
-              hold a stake until you finish, and build a streak that actually means something.
+              Pactone is an accountability app for habits and personal goals.
+              You set a goal, check in with proof on a schedule, and stay honest
+              with a partner — or on your own — until the goal is done.
             </p>
             <div class="ctas">
               <button
@@ -943,6 +1028,61 @@
         </div>
       </section>
 
+      <section class="section purpose" id="about">
+        <div class="section-inner">
+          <p class="section-label">About Pactone</p>
+          <h2 class="section-title">What is Pactone?</h2>
+          <p class="purpose-lead">
+            Pactone helps you follow through on habits and commitments you care about.
+            Instead of tracking tasks in isolation, you create a <strong>goal</strong> (a pact),
+            agree on how often you will report progress, and submit <strong>proof</strong> — a photo,
+            screenshot, or other evidence — when each check-in is due. A friend can review your
+            reports, or you can use solo mode and have Pactone verify them for you.
+          </p>
+
+          <div class="purpose-grid">
+            <article class="purpose-block">
+              <h3>Who it’s for</h3>
+              <p>
+                Anyone building a routine who wants gentle, human accountability — not
+                gamified streak pressure. Use it with a roommate, coach, or friend,
+                or run goals privately on your own.
+              </p>
+              <div class="use-cases">
+                <span class="use-case">Morning workouts</span>
+                <span class="use-case">Studying</span>
+                <span class="use-case">Screen limits</span>
+                <span class="use-case">Daily writing</span>
+                <span class="use-case">Meditation</span>
+              </div>
+            </article>
+
+            <article class="purpose-block">
+              <h3>What you can do</h3>
+              <ul>
+                <li>Create goals with a schedule and expected proof type</li>
+                <li>Invite an accountability partner by @username</li>
+                <li>Submit check-in reports with photos or media</li>
+                <li>Track streaks, reliability, and upcoming due dates</li>
+                <li>Optionally attach a money stake held until the goal ends</li>
+              </ul>
+            </article>
+
+            <article class="purpose-block wide">
+              <h3>How accountability works</h3>
+              <p>
+                When a report is due, you capture proof in the app. Your partner reviews it and
+                can approve it or ask for a clearer submission. In solo mode, Pactone reviews
+                your proof against what the goal requires. Missed check-ins are recorded honestly;
+                optional stakes can transfer to your partner, charity, or back to you when the
+                goal completes. Pactone does not sell your data or use engagement tricks — it is
+                a calm tool to help you keep promises to yourself and people who matter.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="how">
         <div class="section-inner">
           <p class="section-label">How it works</p>
@@ -1030,7 +1170,9 @@
     <footer class="site-footer">
       <p>
         © <span id="year"></span> Pactone · A
-        <a href="/">Flowstate Labs</a> app
+        <a href="/">Flowstate Labs</a> app ·
+        <a href="/privacy-policy">Privacy</a> ·
+        <a href="/terms-of-service">Terms</a>
       </p>
     </footer>
 
