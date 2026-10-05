@@ -3,247 +3,188 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pane — Windows apps, as real Mac apps</title>
-  <meta name="description" content="Pane turns Windows apps into Mac apps. Each one opens from Finder, Launchpad and the Dock, and saves files straight to your Mac's own folders. No virtual machine, no rebooting." />
-  <meta property="og:title" content="Pane — Windows apps, as real Mac apps" />
-  <meta property="og:description" content="Open Windows apps from Finder and save files to your own Mac. No virtual machine, no rebooting." />
+  <title>Pane — Windows apps that behave like Mac apps</title>
+  <meta name="description" content="Pane wraps a Windows program into a Mac app. It opens from Finder, Spotlight and the Dock, and saves to your own Desktop, Documents and Downloads. No virtual machine, no copy of Windows." />
+  <meta property="og:title" content="Pane — Windows apps that behave like Mac apps" />
+  <meta property="og:description" content="Open Windows programs from Finder and save to your own folders. No virtual machine, no copy of Windows." />
   <meta property="og:image" content="https://pane.flabs.ca/assets/og.jpg" />
   <meta property="og:url" content="https://pane.flabs.ca/" />
-  <meta name="theme-color" content="#eef2f7" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0e1218" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f5f5f2" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
 
-  <header class="nav">
-    <div class="nav-inner">
-      <a href="#top" class="brand">
-        <img src="/assets/pane-icon.png" alt="" width="28" height="28" />
-        Pane
-      </a>
-      <nav class="nav-links">
-        <a href="#how">How it works</a>
-        <a href="#features">Features</a>
-        <a href="#faq">FAQ</a>
-        <a href="https://flabs.ca/#updates" class="nav-cta">Get updates</a>
-      </nav>
-    </div>
+  <header class="top">
+    <a href="/" class="mark">
+      <img src="/assets/pane-icon.png" alt="" width="26" height="26" />
+      <span>Pane</span>
+    </a>
+    <nav>
+      <a href="#details">Details</a>
+      <a href="#questions">Questions</a>
+      <a href="https://flabs.ca/#updates" class="strong">Get notified</a>
+    </nav>
   </header>
 
-  <main id="top">
+  <main>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">Pane · by Flowstate Labs</p>
-        <h1>Windows apps.<br /><span class="grad">Mac manners.</span></h1>
-        <p class="lead">
-          Pane turns a Windows app into a real Mac app. It gets its own icon in
-          Finder, Launchpad and the Dock, and it saves files straight into your
-          Mac's own folders. No virtual machine. No rebooting into Windows.
+    <section class="intro">
+      <h1>Windows apps that<br />behave like Mac apps.</h1>
+      <div class="intro-cols">
+        <p>
+          Pane wraps a Windows program into an ordinary Mac app. It sits in
+          Applications, opens from Spotlight, keeps a place in the Dock, and saves
+          to your own Desktop, Documents and Downloads.
         </p>
-        <div class="actions">
-          <a href="https://flabs.ca/#updates" class="btn btn-primary">Tell me when it ships</a>
-          <a href="#how" class="btn btn-ghost">See how it works <span aria-hidden="true">›</span></a>
+        <p>
+          There's no virtual machine and no copy of Windows running underneath.
+          Just the program you needed, on the Mac you already have.
+        </p>
+      </div>
+      <p class="status"><span class="dot"></span>In development · for macOS 14.6 and later · <a href="https://flabs.ca/#updates">get one email when it ships</a></p>
+    </section>
+
+    <!-- Finder: the Windows program is just another row in Applications -->
+    <figure class="stage" aria-label="A Finder window listing Applications, where a Windows program appears alongside Mac apps">
+      <div class="finder">
+        <div class="f-side">
+          <div class="lights"><i></i><i></i><i></i></div>
+          <p class="f-label">Favorites</p>
+          <span class="f-item"><b class="si si-app"></b>Applications</span>
+          <span class="f-item"><b class="si si-desk"></b>Desktop</span>
+          <span class="f-item"><b class="si si-doc"></b>Documents</span>
+          <span class="f-item"><b class="si si-down"></b>Downloads</span>
+          <p class="f-label">Locations</p>
+          <span class="f-item"><b class="si si-disk"></b>Macintosh HD</span>
         </div>
-        <p class="fine">For macOS 14.6 Sonoma or later · Apple Silicon and Intel</p>
-      </div>
-
-      <!-- Finder mock-up: Windows apps sitting in Applications like any other app -->
-      <div class="hero-art" aria-hidden="true">
-        <div class="window finder">
-          <div class="titlebar">
-            <span class="lights"><i></i><i></i><i></i></span>
-            <span class="title">Applications</span>
+        <div class="f-main">
+          <div class="f-bar">
+            <span class="chev">‹</span><span class="chev dim">›</span>
+            <strong>Applications</strong>
           </div>
-          <div class="finder-body">
-            <aside class="sidebar">
-              <p>Favourites</p>
-              <span class="on">Applications</span>
-              <span>Desktop</span>
-              <span>Documents</span>
-              <span>Downloads</span>
-            </aside>
-            <div class="grid">
-              <figure><span class="app a1"></span><figcaption>Sketchbook.app</figcaption></figure>
-              <figure><span class="app a2"></span><figcaption>Ledger.app</figcaption></figure>
-              <figure><span class="app a3"></span><figcaption>Map Editor.app</figcaption></figure>
-              <figure><span class="app a4"></span><figcaption>Tracker.app</figcaption></figure>
-              <figure><span class="app a5"></span><figcaption>Old Game.app</figcaption></figure>
-              <figure class="badge"><span class="app pane"></span><figcaption>Pane.app</figcaption></figure>
-            </div>
-          </div>
+          <table class="f-list">
+            <thead><tr><th>Name</th><th>Date Modified</th><th>Size</th><th>Kind</th></tr></thead>
+            <tbody>
+              <tr><td><b class="ai ai-1"></b>Atlas</td><td>12 Sep 2026</td><td>48 MB</td><td>Application</td></tr>
+              <tr><td><b class="ai ai-2"></b>Brightline</td><td>3 Aug 2026</td><td>112 MB</td><td>Application</td></tr>
+              <tr><td><b class="ai ai-3"></b>Clipboard Plus</td><td>21 Jul 2026</td><td>9 MB</td><td>Application</td></tr>
+              <tr class="sel"><td><b class="ai ai-win"></b>Ledger 98</td><td>Today, 09:41</td><td>186 MB</td><td>Application</td></tr>
+              <tr><td><img src="/assets/pane-icon.png" alt="" class="ai-img" />Pane</td><td>Today, 09:12</td><td>64 MB</td><td>Application</td></tr>
+              <tr><td><b class="ai ai-4"></b>Pixel Mill</td><td>30 Jun 2026</td><td>74 MB</td><td>Application</td></tr>
+              <tr><td><b class="ai ai-win2"></b>TileForge</td><td>Yesterday, 18:20</td><td>231 MB</td><td>Application</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="dock">
-          <span class="d d1"></span><span class="d d2"></span><span class="d a1"></span>
-          <span class="d a3"></span><span class="d a5"></span><span class="d pane"></span>
+      </div>
+      <figcaption>Ledger 98 and TileForge are Windows programs. Finder can't tell, and neither can you.</figcaption>
+    </figure>
+
+    <section class="chapter">
+      <div class="c-text">
+        <p class="c-num">01</p>
+        <h2>Open it the way you open anything.</h2>
+        <p>
+          Each program becomes its own <code>.app</code> with its own icon.
+          Search for it in Spotlight, pin it in the Dock, drag it to the Trash
+          when you're done. Its settings and add-ons live inside the app, so
+          they leave with it.
+        </p>
+      </div>
+      <div class="c-art" aria-hidden="true">
+        <div class="spot">
+          <div class="spot-q"><span class="glass"></span>tilef<span class="caret"></span></div>
+          <div class="spot-r on"><b class="ai ai-win2"></b><span>TileForge</span><em>Application</em></div>
+          <div class="spot-r"><b class="si si-doc"></b><span>tileforge-notes.txt</span><em>Document</em></div>
+          <div class="spot-r"><b class="si si-doc"></b><span>tiles-final.png</span><em>Image</em></div>
         </div>
-        <div class="tag">Windows apps · right next to your Mac ones</div>
       </div>
     </section>
 
-    <!-- Problem / promise -->
-    <section class="band">
-      <p class="statement">
-        Running one Windows program shouldn't mean running all of Windows.
-        <span class="dim">Pane skips the second desktop and gives you just the app, behaving like it belongs on your Mac.</span>
-      </p>
-    </section>
-
-    <!-- Features -->
-    <section class="features" id="features">
-      <div class="section-head">
-        <p class="eyebrow">Why Pane</p>
-        <h2>It feels like it came from the Mac.</h2>
+    <section class="chapter flip">
+      <div class="c-text">
+        <p class="c-num">02</p>
+        <h2>Save, and it's in your Documents.</h2>
+        <p>
+          The program's Desktop, Documents and Downloads are your Mac's real
+          folders. Files show up in Finder straight away, ready for AirDrop,
+          iCloud Drive or Time Machine. Nothing is hidden on a virtual drive.
+        </p>
       </div>
-      <div class="cards">
-        <article class="card">
-          <div class="ico">
-            <svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-          </div>
-          <h3>It lives in Finder</h3>
-          <p>Every Windows app becomes its own <code>.app</code>. Find it in Applications, open it from Spotlight or Launchpad, and keep it in the Dock.</p>
-        </article>
-        <article class="card">
-          <div class="ico">
-            <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-          </div>
-          <h3>Saves where you expect</h3>
-          <p>Hit Save and the file lands in your real Desktop, Documents or Downloads. It isn't buried in a hidden drive you have to dig through.</p>
-        </article>
-        <article class="card">
-          <div class="ico">
-            <svg viewBox="0 0 24 24"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></svg>
-          </div>
-          <h3>No virtual machine</h3>
-          <p>Pane doesn't boot a copy of Windows. It translates the app's requests for your Mac as it runs, so it starts fast and doesn't need a Windows licence.</p>
-        </article>
-        <article class="card">
-          <div class="ico">
-            <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="4"/><path d="M8 11v3M6.5 12.5h3M15 12h.01M17 14h.01"/></svg>
-          </div>
-          <h3>Games, too</h3>
-          <p>DirectX 9 through 12 is translated to Metal, including Apple's D3DMetal for DirectX 11 and 12 on Apple Silicon.</p>
-        </article>
-        <article class="card">
-          <div class="ico">
-            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 12h6M12 9v6"/></svg>
-          </div>
-          <h3>One app, one bundle</h3>
-          <p>Each app keeps its own settings, fonts and add-ons in its own bundle. Delete the app and it all goes with it.</p>
-        </article>
-        <article class="card">
-          <div class="ico">
-            <svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/></svg>
-          </div>
-          <h3>Stays on your Mac</h3>
-          <p>Your apps and files never leave your machine. There's no cloud streaming and no account just to open a program.</p>
-        </article>
+      <div class="c-art" aria-hidden="true">
+        <div class="sheet">
+          <div class="row"><label>Save As:</label><span class="field">march-accounts.xls</span></div>
+          <div class="row"><label>Tags:</label><span class="field ghost"></span></div>
+          <div class="row"><label>Where:</label><span class="field pop"><b class="si si-doc"></b>Documents<i>⌃</i></span></div>
+          <div class="btns"><span class="b">Cancel</span><span class="b go">Save</span></div>
+        </div>
+        <p class="art-note">Ledger 98, saving straight to <code>~/Documents</code></p>
       </div>
     </section>
 
-    <!-- How it works -->
-    <section class="how" id="how">
-      <div class="section-head">
-        <p class="eyebrow">How it works</p>
-        <h2>Three steps, then it's just an app.</h2>
+    <section class="chapter">
+      <div class="c-text">
+        <p class="c-num">03</p>
+        <h2>No second computer inside your computer.</h2>
+        <p>
+          Virtual machines boot all of Windows to run one program, and ask for a
+          licence, gigabytes of memory and your battery in return. Pane is built
+          on Wine, which runs the program directly on macOS. It starts like an
+          app because it is one.
+        </p>
       </div>
-      <ol class="steps">
-        <li>
-          <span class="num">1</span>
-          <h3>Drop in the installer</h3>
-          <p>Drag a Windows <code>.exe</code> or <code>.msi</code> onto Pane, or pick the app's folder.</p>
-        </li>
-        <li>
-          <span class="num">2</span>
-          <h3>Pane builds a Mac app</h3>
-          <p>It installs the program, chooses the right graphics settings and wraps it all in a single <code>.app</code> with its own icon.</p>
-        </li>
-        <li>
-          <span class="num">3</span>
-          <h3>Open it like any other app</h3>
-          <p>Launch it from Finder, Spotlight or the Dock. Your files save to your Mac, ready for AirDrop, iCloud or Time Machine.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- Comparison -->
-    <section class="compare">
-      <div class="section-head">
-        <p class="eyebrow">Compared</p>
-        <h2>Less than a whole second computer.</h2>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th></th><th class="hl">Pane</th><th>Virtual machine</th><th>Second PC</th></tr>
-          </thead>
-          <tbody>
-            <tr><th>Opens from Finder &amp; the Dock</th><td class="hl yes">Yes</td><td>Inside a VM window</td><td>No</td></tr>
-            <tr><th>Saves to your Mac's folders</th><td class="hl yes">Yes</td><td>Through shared folders</td><td>Copy files across</td></tr>
-            <tr><th>Needs a Windows licence</th><td class="hl yes">No</td><td>Yes</td><td>Yes</td></tr>
-            <tr><th>Memory &amp; battery cost</th><td class="hl yes">Just the app</td><td>A whole OS</td><td>A whole machine</td></tr>
-          </tbody>
-        </table>
+      <div class="c-art compare" aria-hidden="true">
+        <div class="bar-row"><span>Pane</span><div class="bar"><i style="width:6%"></i></div><em>the program</em></div>
+        <div class="bar-row"><span>Virtual machine</span><div class="bar"><i class="grey" style="width:100%"></i></div><em>the program + all of Windows</em></div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-      <div class="section-head">
-        <p class="eyebrow">FAQ</p>
-        <h2>Good questions.</h2>
+    <section class="details" id="details">
+      <h2>Details</h2>
+      <dl>
+        <div><dt>Runs on</dt><dd>macOS 14.6 Sonoma or later. Apple silicon and Intel. Apple silicon Macs use Rosetta 2, which macOS installs when first asked.</dd></div>
+        <div><dt>Graphics</dt><dd>DirectX 9 through 12, translated to Metal. Apple's D3DMetal handles DirectX 11 and 12 on Apple silicon; DXMT, DXVK and WineD3D cover the rest.</dd></div>
+        <div><dt>Installing a program</dt><dd>Point Pane at a Windows installer (<code>.exe</code> or <code>.msi</code>) or a program folder. It builds the Mac app around it.</dd></div>
+        <div><dt>Your files</dt><dd>Desktop, Documents and Downloads are shared with your Mac. Everything stays on your machine — no account, no cloud.</dd></div>
+        <div><dt>Built on</dt><dd>Wine and the Wineskin project, with LGPL components published as source.</dd></div>
+        <div><dt>Availability</dt><dd>In development. One email when it ships, nothing else.</dd></div>
+      </dl>
+    </section>
+
+    <section class="questions" id="questions">
+      <h2>Questions</h2>
+      <div class="qa">
+        <h3>Will every Windows program work?</h3>
+        <p>No. Most everyday programs and many games do. Anything that needs kernel-level anti-cheat or a special hardware driver usually won't.</p>
       </div>
-      <div class="qs">
-        <details>
-          <summary>Will every Windows app work?</summary>
-          <p>Not every one, and we won't pretend otherwise. Most everyday programs and many games run well. Apps with kernel-level anti-cheat or special hardware drivers usually don't.</p>
-        </details>
-        <details>
-          <summary>Do I need a copy of Windows?</summary>
-          <p>No. Pane is built on Wine, which runs Windows programs directly on macOS without Windows itself. You only need the app you want to run.</p>
-        </details>
-        <details>
-          <summary>Which Macs are supported?</summary>
-          <p>macOS 14.6 Sonoma or later, on Apple Silicon or Intel. Apple Silicon Macs also need Rosetta 2, which macOS offers to install the first time it's needed.</p>
-        </details>
-        <details>
-          <summary>Where do my files go?</summary>
-          <p>The app's Desktop, Documents and Downloads are your Mac's real folders. Anything you save shows up in Finder straight away.</p>
-        </details>
-        <details>
-          <summary>My antivirus flagged a file. Is it safe?</summary>
-          <p>Windows programs compiled for Wine sometimes trip antivirus heuristics. That's a known false positive across Wine-based tools. Only download Pane from this site.</p>
-        </details>
-        <details>
-          <summary>When can I get it?</summary>
-          <p>Pane is in active development. Leave your email on the Flowstate Labs site and you'll get one short note when it ships.</p>
-        </details>
+      <div class="qa">
+        <h3>Do I need to buy Windows?</h3>
+        <p>No. Pane doesn't run Windows, so there's nothing to license. You only need the program itself.</p>
+      </div>
+      <div class="qa">
+        <h3>My antivirus flagged a file.</h3>
+        <p>Programs built for Wine sometimes trip antivirus heuristics; it's a known false positive across Wine-based tools. Only download Pane from this site.</p>
+      </div>
+      <div class="qa">
+        <h3>Who makes it?</h3>
+        <p><a href="https://flabs.ca">Flowstate Labs</a>, an independent studio. Questions go to <a href="mailto:hello@flowstateslabs.com">hello@flowstateslabs.com</a>.</p>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
-      <img src="/assets/pane-icon.png" alt="" width="96" height="96" />
-      <h2>Bring your Windows apps home.</h2>
-      <p>One email when Pane is ready. Nothing else.</p>
-      <a href="https://flabs.ca/#updates" class="btn btn-primary">Get updates</a>
+    <section class="end">
+      <img src="/assets/pane-icon.png" alt="" width="72" height="72" />
+      <p>Pane is in development.</p>
+      <a href="https://flabs.ca/#updates" class="button">Get one email when it ships</a>
     </section>
 
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <span>© 2026 <a href="https://flabs.ca">Flowstate Labs</a></span>
-      <nav>
-        <a href="https://flabs.ca/privacy-policy">Privacy Policy</a>
-        <a href="https://flabs.ca/terms-of-service">Terms of Service</a>
-        <a href="mailto:hello@flowstateslabs.com">hello@flowstateslabs.com</a>
-      </nav>
-    </div>
-    <p class="legal">Windows is a trademark of Microsoft Corporation. Pane is not affiliated with or endorsed by Microsoft or Apple.</p>
+  <footer>
+    <span>© 2026 <a href="https://flabs.ca">Flowstate Labs</a></span>
+    <span><a href="https://flabs.ca/privacy-policy">Privacy</a> · <a href="https://flabs.ca/terms-of-service">Terms</a></span>
+    <small>Windows is a trademark of Microsoft Corporation. Pane is not affiliated with Microsoft or Apple. App names shown are illustrative.</small>
   </footer>
 
 </body>
