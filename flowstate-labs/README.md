@@ -10,7 +10,6 @@ Static site for Flowstate Labs: calm, considered software that makes everyday li
 - `assets/` — logo, favicon, and brand icons
 - `privacy-policy/` — general privacy policy for all apps (`/privacy-policy`)
 - `terms-of-service/` — terms of service (`/terms-of-service`)
-- `pactone/` — Pactone app landing page (`/pactone`)
 
 ## App-specific privacy
 
@@ -23,4 +22,4 @@ and supplement the general policy at `/privacy-policy`.
 python3 -m http.server 5173
 ```
 
-Then visit http://localhost:5173, http://localhost:5173/pactone, http://localhost:5173/privacy-policy, and http://localhost:5173/terms-of-service.
+Then visit http://localhost:5173, http://localhost:5173/privacy-policy, and http://localhost:5173/terms-of-service.

@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#33208a"/>
+      <stop offset="1" stop-color="#0d0828"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="0.56" cy="0.6" r="0.5">
+      <stop offset="0" stop-color="#ff7a2f" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ff7a2f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cool" cx="0.85" cy="0.2" r="0.55">
+      <stop offset="0" stop-color="#8b6cff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#8b6cff" stop-opacity="0"/>
+    </radialGradient>
+    <!-- side walls: lit from the top-left, falling into shade at the bottom -->
+    <linearGradient id="side" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff9a52"/>
+      <stop offset="0.45" stop-color="#e2561a"/>
+      <stop offset="1" stop-color="#6a1f07"/>
+    </linearGradient>
+    <linearGradient id="sideBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e86a2a"/>
+      <stop offset="0.5" stop-color="#b8400f"/>
+      <stop offset="1" stop-color="#4a1505"/>
+    </linearGradient>
+    <linearGradient id="groove" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2a7a"/>
+      <stop offset="1" stop-color="#0a0620"/>
+    </linearGradient>
+    <radialGradient id="rim" cx="0.3" cy="0.25" r="0.9">
+      <stop offset="0" stop-color="#ffc08a"/>
+      <stop offset="0.45" stop-color="#ff7329"/>
+      <stop offset="1" stop-color="#c2410c"/>
+    </radialGradient>
+    <radialGradient id="cap" cx="0.32" cy="0.28" r="0.85">
+      <stop offset="0" stop-color="#fffbf5"/>
+      <stop offset="1" stop-color="#ffd2ad"/>
+    </radialGradient>
+    <radialGradient id="core" cx="0.32" cy="0.28" r="0.9">
+      <stop offset="0" stop-color="#9a80ff"/>
+      <stop offset="0.6" stop-color="#5b3be6"/>
+      <stop offset="1" stop-color="#3418a8"/>
+    </radialGradient>
+    <radialGradient id="hub" cx="0.32" cy="0.28" r="0.9">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#cfc6f2"/>
+    </radialGradient>
+    <filter id="cast" x="-30%" y="-30%" width="170%" height="170%">
+      <feDropShadow dx="22" dy="36" stdDeviation="34" flood-color="#04020c" flood-opacity="0.6"/>
+    </filter>
+    <filter id="blur6"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="blur18" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+    <clipPath id="sq"><rect width="1024" height="1024" rx="230"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#sq)">
+    <rect width="1024" height="1024" fill="url(#bg)"/>
+    <rect width="1024" height="1024" fill="url(#cool)"/>
+    <rect width="1024" height="1024" fill="url(#warm)"/>
+
+    <!-- motion trails, trailing the spin on the left -->
+    <g fill="none" stroke-linecap="round">
+      <path d="M196 430 A330 330 0 0 0 196 770" stroke="#ffb27a" stroke-width="18" opacity="0.55"/>
+      <path d="M138 470 A380 380 0 0 0 138 730" stroke="#ffb27a" stroke-width="12" opacity="0.28"/>
+    </g>
+
+    <g filter="url(#cast)">
+      <!-- back half: tapers from its outer face toward the groove -->
+      <ellipse cx="610" cy="600" rx="190" ry="250" fill="url(#sideBack)"/>
+      <path d="M545 392 L610 350 L610 850 L545 808 Z" fill="url(#sideBack)"/>
+      <ellipse cx="545" cy="600" rx="158" ry="208" fill="url(#sideBack)"/>
+      <!-- cool rim light on the far edge -->
+      <path d="M610 350 A190 250 0 0 1 610 850" fill="none" stroke="#b9a6ff" stroke-width="7" stroke-opacity="0.75"/>
+
+      <!-- axle groove between the halves -->
+      <ellipse cx="545" cy="600" rx="120" ry="160" fill="url(#groove)"/>
+      <rect x="495" y="440" width="50" height="320" fill="url(#groove)"/>
+      <ellipse cx="495" cy="600" rx="120" ry="160" fill="url(#groove)"/>
+
+      <!-- string, disappearing into the groove behind the front half -->
+      <path d="M578 -20 C572 150 540 300 522 450" fill="none" stroke="#fff3e6" stroke-width="20" stroke-linecap="round"/>
+
+      <!-- front half: side wall, tapering toward the groove -->
+      <ellipse cx="495" cy="600" rx="158" ry="208" fill="url(#side)"/>
+      <path d="M430 350 L495 392 L495 808 L430 850 Z" fill="url(#side)"/>
+
+      <!-- front face, drawn as circles and squashed into perspective -->
+      <g transform="translate(430 600) scale(0.76 1)">
+        <circle r="250" fill="url(#rim)"/>
+        <circle r="246" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="5"/>
+        <circle r="204" fill="none" stroke="#7a2508" stroke-opacity="0.35" stroke-width="16"/>
+        <circle r="192" fill="url(#cap)"/>
+        <circle r="140" fill="none" stroke="#c46a3a" stroke-opacity="0.3" stroke-width="12"/>
+        <circle r="134" fill="url(#core)"/>
+        <!-- G emblem -->
+        <path d="M66 -54 A86 86 0 1 0 84 22 H34" fill="none" stroke="#fff4e8" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle r="34" fill="url(#hub)"/>
+        <circle r="11" fill="#3418a8"/>
+        <!-- specular highlights -->
+        <path d="M-196 -96 A222 222 0 0 1 -60 -214" fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round" stroke-opacity="0.9" filter="url(#blur6)"/>
+        <ellipse cx="-92" cy="-112" rx="46" ry="24" transform="rotate(-38 -92 -112)" fill="#ffffff" opacity="0.55" filter="url(#blur6)"/>
+      </g>
+    </g>
+
+    <!-- sparkle with a soft halo -->
+    <circle cx="812" cy="250" r="54" fill="#ffd166" opacity="0.35" filter="url(#blur18)"/>
+    <path d="M812 186 l16 48 48 16 -48 16 -16 48 -16 -48 -48 -16 48 -16z" fill="#ffe08a"/>
+  </g>
+</svg>
